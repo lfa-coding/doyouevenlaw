@@ -165,6 +165,7 @@
   .hero h1 .outline-y {
     -webkit-text-stroke: 2px var(--yellow);
     color: transparent;
+    font-family: 'Bebas Neue', sans-serif;
   }
 
   .hero-sub {
@@ -875,6 +876,68 @@
   }
   .footer-links a:hover { color: var(--yellow); }
 
+
+  /* ─── YELLOW AGENT CARD ─────────────────────────────────── */
+  .agent-card-yellow {
+    background: var(--yellow);
+    border-color: var(--yellow);
+    display: flex;
+    align-items: stretch;
+    cursor: default;
+  }
+  .agent-card-yellow:hover {
+    border-color: var(--yellow);
+    transform: translateY(-4px);
+    background: var(--yellow2);
+  }
+  .agent-card-yellow-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+  }
+  .agent-yellow-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    letter-spacing: 2px;
+    color: var(--black);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    line-height: 1;
+  }
+  .agent-yellow-stat {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    line-height: 0.9;
+    color: var(--black);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  .agent-yellow-body {
+    font-size: 14px;
+    color: rgba(0,0,0,0.75);
+    line-height: 1.7;
+    font-weight: 400;
+    font-style: normal;
+    flex: 1;
+    margin-bottom: 28px;
+  }
+  .agent-yellow-cta {
+    display: inline-block;
+    background: var(--black);
+    color: var(--yellow);
+    padding: 12px 24px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s;
+    align-self: flex-start;
+  }
+  .agent-yellow-cta:hover { background: #1a1a1a; }
+
   /* ─── ANIMATIONS ───────────────────────────────────────── */
   @keyframes riseIn {
     from { opacity: 0; transform: translateY(24px); }
@@ -1049,7 +1112,8 @@
     <a href="#agents" class="nav-link">The Agents</a>
     <a href="#how-it-works" class="nav-link">How It Works</a>
     <a href="#faq" class="nav-link">FAQ</a>
-    <a href="#" class="nav-pill">Get Started →</a>
+    <a href="https://lawfirmarchitects.com" target="_blank" class="nav-link">LFA</a>
+    <a href="https://calendly.com/lawfirmarchitects/ai-agent-design-session" target="_blank" class="nav-pill">Get Started →</a>
   </div>
 </nav>
 
@@ -1092,20 +1156,16 @@
 <!-- YELLOW MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
-    <span class="marquee-item"><span class="marquee-sep"></span>Intake Agent</span>
-    <span class="marquee-item"><span class="marquee-sep"></span>Document Agent</span>
     <span class="marquee-item"><span class="marquee-sep"></span>Billing Agent</span>
-    <span class="marquee-item"><span class="marquee-sep"></span>Deadline Agent</span>
-    <span class="marquee-item"><span class="marquee-sep"></span>Client Comms Agent</span>
-    <span class="marquee-item"><span class="marquee-sep"></span>Research Agent</span>
-    <span class="marquee-item"><span class="marquee-sep"></span>Drafting Agent</span>
-    <span class="marquee-item"><span class="marquee-sep"></span>Intake Agent</span>
     <span class="marquee-item"><span class="marquee-sep"></span>Document Agent</span>
-    <span class="marquee-item"><span class="marquee-sep"></span>Billing Agent</span>
-    <span class="marquee-item"><span class="marquee-sep"></span>Deadline Agent</span>
     <span class="marquee-item"><span class="marquee-sep"></span>Client Comms Agent</span>
-    <span class="marquee-item"><span class="marquee-sep"></span>Research Agent</span>
-    <span class="marquee-item"><span class="marquee-sep"></span>Drafting Agent</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Intake Agent</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Deadline Agent</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Billing Agent</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Document Agent</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Client Comms Agent</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Intake Agent</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Deadline Agent</span>
   </div>
 </div>
 
@@ -1142,17 +1202,17 @@
 <section class="agents" id="agents">
   <div class="agents-header">
     <div class="section-tag">Your AI Team</div>
-    <h2>SEVEN AGENTS.<br><span>ZERO SICK DAYS.</span></h2>
+    <h2>FIVE AGENTS.<br><span>ZERO SICK DAYS.</span></h2>
     <p>Each one owns a job in your firm. All of them work in the tools you already use.</p>
   </div>
 
-  <div class="agents-grid">
+    <div class="agents-grid">
     <div class="agent-card">
       <div class="agent-card-glow"></div>
-      <span class="agent-emoji">📥</span>
-      <div class="agent-zone">Front of House</div>
-      <h3>Intake Agent</h3>
-      <p>"New inquiry at 11pm? I'm on it. I respond, qualify, schedule the consult, and send the intake packet — before anyone on your team has seen the email."</p>
+      <span class="agent-emoji">💰</span>
+      <div class="agent-zone">Back of House</div>
+      <h3>Billing Agent</h3>
+      <p>"Invoice delivered. Reminder sent. SMS fired. Escalation flagged. Collections go up. Nobody gets hassled. That's the whole job."</p>
     </div>
     <div class="agent-card">
       <div class="agent-card-glow"></div>
@@ -1170,10 +1230,10 @@
     </div>
     <div class="agent-card">
       <div class="agent-card-glow"></div>
-      <span class="agent-emoji">💰</span>
-      <div class="agent-zone">Back of House</div>
-      <h3>Billing Agent</h3>
-      <p>"Invoice delivered. Reminder sent. SMS fired. Escalation flagged. Collections go up. Nobody gets hassled. That's the whole job."</p>
+      <span class="agent-emoji">📥</span>
+      <div class="agent-zone">Front of House</div>
+      <h3>Intake Agent</h3>
+      <p>"New inquiry at 11pm? I'm on it. I respond, qualify, schedule the consult, and send the intake packet — before anyone on your team has seen the email."</p>
     </div>
     <div class="agent-card">
       <div class="agent-card-glow"></div>
@@ -1182,12 +1242,13 @@
       <h3>Deadline Agent</h3>
       <p>"I calculate critical dates from court rules — not someone's calendar entry — and alert the right person at 30, 14, 7, and 2 days out. Nothing slips."</p>
     </div>
-    <div class="agent-card">
-      <div class="agent-card-glow"></div>
-      <span class="agent-emoji">🔍</span>
-      <div class="agent-zone">Attorney Leverage</div>
-      <h3>Research Agent</h3>
-      <p>"I do the retrieval. You do the thinking. Hours of case law synthesis, summarized and cited before your second cup of coffee."</p>
+    <div class="agent-card agent-card-yellow">
+      <div class="agent-card-yellow-inner">
+        <div class="agent-yellow-label">SPEED TO DEPLOY</div>
+        <p class="agent-yellow-stat">3 weeks.</p>
+        <p class="agent-yellow-body">Most firms are running their first agent within 3 weeks of our first conversation. Design session. Build. QA. Launch. That's the whole process.</p>
+        <a href="https://calendly.com/lawfirmarchitects/ai-agent-design-session" target="_blank" class="agent-yellow-cta">Book Your Session →</a>
+      </div>
     </div>
   </div>
 
@@ -1335,7 +1396,7 @@
       What if the agent does something unexpected?
       <span class="faq-icon">+</span>
     </button>
-    <div class="faq-body">Every agent has defined escalation logic. When something falls outside the expected pattern, it stops and alerts a human. We also run a 30-day review period on every new deployment — a team member checks outputs before they reach clients. Most agents run cleanly after that. The review period is how we build that confidence.</div>
+    <div class="faq-body">Before anything goes live, we work with your team through robust Quality Assurance testing to validate that every agent behaves exactly as designed. We also build in safeguards that keep you in control of agent actions at every step — so the system works for you, not around you.</div>
   </div>
 
   <div class="faq-item">
