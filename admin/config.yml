@@ -1,0 +1,154 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "site_content"
+    label: "Site Content"
+    files:
+
+      - name: "nav"
+        label: "Navigation"
+        file: "_data/nav.json"
+        fields:
+          - { label: "Logo Text", name: "logo_text", widget: "string", default: "DO YOU EVEN LAW?" }
+          - { label: "Link 1 Label", name: "link1_label", widget: "string", default: "The Agents" }
+          - { label: "Link 1 URL", name: "link1_url", widget: "string", default: "#agents" }
+          - { label: "Link 2 Label", name: "link2_label", widget: "string", default: "How It Works" }
+          - { label: "Link 2 URL", name: "link2_url", widget: "string", default: "#how-it-works" }
+          - { label: "Link 3 Label", name: "link3_label", widget: "string", default: "FAQ" }
+          - { label: "Link 3 URL", name: "link3_url", widget: "string", default: "#faq" }
+          - { label: "CTA Button Label", name: "cta_label", widget: "string", default: "Get Started →" }
+          - { label: "CTA Button URL", name: "cta_url", widget: "string", default: "#" }
+
+      - name: "hero"
+        label: "Hero Section"
+        file: "_data/hero.json"
+        fields:
+          - { label: "Eyebrow Text", name: "eyebrow", widget: "string", default: "DoYouEvenLaw.com — Powered by Law Firm Architects" }
+          - { label: "Headline Line 1", name: "headline_1", widget: "string", default: "YOUR FIRM" }
+          - { label: "Headline Line 2 (Yellow)", name: "headline_2", widget: "string", default: "SHOULD RUN" }
+          - { label: "Headline Line 3 (Outline)", name: "headline_3", widget: "string", default: "ITSELF." }
+          - { label: "Subheadline Bold Text", name: "sub_bold", widget: "string", default: "AI agents for solo and small law firms." }
+          - { label: "Subheadline Body Text", name: "sub_body", widget: "string", default: "Intake, documents, billing, deadlines, client updates — handled automatically, in your voice, while you focus on actually practicing law." }
+          - { label: "Primary Button Label", name: "btn_primary_label", widget: "string", default: "Book a Free Design Session →" }
+          - { label: "Primary Button URL", name: "btn_primary_url", widget: "string", default: "#" }
+          - { label: "Secondary Button Label", name: "btn_secondary_label", widget: "string", default: "See the Agents" }
+          - { label: "Secondary Button URL", name: "btn_secondary_url", widget: "string", default: "#agents" }
+          - label: "Stats"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "Number", name: "num", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+
+      - name: "truth"
+        label: "Problem Section"
+        file: "_data/truth.json"
+        fields:
+          - { label: "Headline Line 1", name: "headline_1", widget: "string", default: "You became a lawyer." }
+          - { label: "Headline Line 2 (Yellow)", name: "headline_2", widget: "string", default: "Not an admin." }
+          - { label: "Body Text", name: "body", widget: "text", default: "But somewhere between the intake emails, the document reminders, the billing follow-ups, and the 'just checking in' messages — that's exactly what happened." }
+          - label: "Problem Cards"
+            name: "cards"
+            widget: "list"
+            fields:
+              - { label: "Number Label", name: "num", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+
+      - name: "agents"
+        label: "Agents Section"
+        file: "_data/agents.json"
+        fields:
+          - { label: "Section Tag", name: "tag", widget: "string", default: "Your AI Team" }
+          - { label: "Headline Line 1", name: "headline_1", widget: "string", default: "SEVEN AGENTS." }
+          - { label: "Headline Line 2 (Yellow)", name: "headline_2", widget: "string", default: "ZERO SICK DAYS." }
+          - { label: "Subtext", name: "subtext", widget: "string", default: "Each one owns a job in your firm. All of them work in the tools you already use." }
+          - { label: "CTA Button Label", name: "cta_label", widget: "string", default: "Book Your Free Agent Design Session →" }
+          - { label: "CTA Button URL", name: "cta_url", widget: "string", default: "#" }
+          - label: "Agents"
+            name: "agents"
+            widget: "list"
+            fields:
+              - { label: "Emoji", name: "emoji", widget: "string" }
+              - { label: "Zone Label", name: "zone", widget: "string" }
+              - { label: "Agent Name", name: "name", widget: "string" }
+              - { label: "Description (first person)", name: "description", widget: "text" }
+
+      - name: "timeline"
+        label: "Day in the Life Section"
+        file: "_data/timeline.json"
+        fields:
+          - { label: "Section Tag", name: "tag", widget: "string", default: "A Day in Your Firm" }
+          - { label: "Headline Line 1", name: "headline_1", widget: "string", default: "WELCOME TO YOUR" }
+          - { label: "Headline Line 2 (Yellow)", name: "headline_2", widget: "string", default: "NEW NORMAL." }
+          - { label: "Subtext", name: "subtext", widget: "string", default: "This is what Monday morning looks like when your firm is actually designed to run." }
+          - label: "Timeline Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Time", name: "time", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+              - { label: "Bold Closing Line", name: "bold", widget: "string" }
+
+      - name: "testimonials"
+        label: "Testimonials"
+        file: "_data/testimonials.json"
+        fields:
+          - { label: "Section Tag", name: "tag", widget: "string", default: "From Real Firms" }
+          - { label: "Headline Line 1", name: "headline_1", widget: "string", default: "THEY TRIED IT." }
+          - { label: "Headline Line 2 (Yellow)", name: "headline_2", widget: "string", default: "HERE'S WHAT HAPPENED." }
+          - { label: "Subtext", name: "subtext", widget: "string", default: "Solo and small firms across practice areas. Real results in the first 90 days." }
+          - label: "Testimonials"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Initials", name: "initials", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Firm Description", name: "firm", widget: "string" }
+
+      - name: "faq"
+        label: "FAQ"
+        file: "_data/faq.json"
+        fields:
+          - { label: "Headline", name: "headline", widget: "string", default: "FAQ" }
+          - { label: "Subtext", name: "subtext", widget: "string", default: "The real ones attorneys actually ask." }
+          - label: "Questions"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+
+      - name: "cta"
+        label: "Final CTA Section"
+        file: "_data/cta.json"
+        fields:
+          - { label: "Section Tag", name: "tag", widget: "string", default: "The Next Step" }
+          - { label: "Headline Line 1", name: "headline_1", widget: "string", default: "STOP" }
+          - { label: "Headline Line 2 (Yellow)", name: "headline_2", widget: "string", default: "DOING IT" }
+          - { label: "Headline Line 3 (Outline)", name: "headline_3", widget: "string", default: "MANUALLY." }
+          - { label: "Body Text", name: "body", widget: "text", default: "Book a free 20-minute Agent Design Session. We'll look at your firm, identify the right first agent, and tell you exactly what it costs. No pitch. Just a clear plan." }
+          - { label: "Button Label", name: "btn_label", widget: "string", default: "Book Your Free Session → DoYouEvenLaw.com" }
+          - { label: "Button URL", name: "btn_url", widget: "string", default: "#" }
+          - { label: "Attribution Text", name: "attribution", widget: "string", default: "Powered by Law Firm Architects · lawfirmarchitects.com" }
+
+      - name: "footer"
+        label: "Footer"
+        file: "_data/footer.json"
+        fields:
+          - { label: "Brand Name", name: "brand", widget: "string", default: "DO YOU EVEN LAW?" }
+          - { label: "Powered By Text", name: "powered_by", widget: "string", default: "Powered by Law Firm Architects" }
+          - { label: "Copyright Text", name: "copyright", widget: "string", default: "© 2025 Law Firm Architects. All rights reserved." }
+          - label: "Footer Links"
+            name: "links"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
