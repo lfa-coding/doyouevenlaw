@@ -1103,6 +1103,81 @@
   }
   .agent-learn-more:hover { border-color: var(--yellow); }
 
+
+  /* ─── NAV FLYOUT ─────────────────────────────────────────── */
+  .nav-dropdown {
+    position: relative;
+  }
+  .nav-dropdown > .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .nav-dropdown > .nav-link::after {
+    content: '▾';
+    font-size: 9px;
+    transition: transform 0.2s;
+  }
+  .nav-dropdown:hover > .nav-link::after {
+    transform: rotate(180deg);
+  }
+  .nav-flyout {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #111111;
+    border: 1px solid rgba(255,197,0,0.15);
+    border-top: 2px solid var(--yellow);
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(-6px);
+    transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+    z-index: 200;
+  }
+  .nav-dropdown:hover .nav-flyout {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  .flyout-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,197,0,0.06);
+    transition: background 0.15s;
+  }
+  .flyout-item:last-child { border-bottom: none; }
+  .flyout-item:hover { background: #1a1a1a; }
+  .flyout-emoji {
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .flyout-text {}
+  .flyout-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--white2);
+    display: block;
+    transition: color 0.15s;
+  }
+  .flyout-item:hover .flyout-name { color: var(--yellow); }
+  .flyout-zone {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray);
+    display: block;
+    margin-top: 1px;
+  }
+
   /* ─── ANIMATIONS ───────────────────────────────────────── */
   @keyframes riseIn {
     from { opacity: 0; transform: translateY(24px); }
@@ -1274,10 +1349,89 @@
 <nav>
   <a href="#" class="logo-mark">DO YOU <em>EVEN</em> LAW?</a>
   <div class="nav-right">
-    <a href="#agents" class="nav-link">The Agents</a>
+    <div class="nav-dropdown">
+      <a href="/#agents" class="nav-link">The Agents</a>
+      <div class="nav-flyout">
+        <a href="/billing-agent.html" class="flyout-item">
+          <span class="flyout-emoji">💰</span>
+          <span class="flyout-text">
+            <span class="flyout-name">Billing Agent</span>
+            <span class="flyout-zone">Back of House</span>
+          </span>
+        </a>
+        <a href="/document-agent.html" class="flyout-item">
+          <span class="flyout-emoji">📄</span>
+          <span class="flyout-text">
+            <span class="flyout-name">Document Agent</span>
+            <span class="flyout-zone">Active Cases</span>
+          </span>
+        </a>
+        <a href="/client-comms-agent.html" class="flyout-item">
+          <span class="flyout-emoji">💬</span>
+          <span class="flyout-text">
+            <span class="flyout-name">Client Comms Agent</span>
+            <span class="flyout-zone">Active Cases</span>
+          </span>
+        </a>
+        <a href="/intake-agent.html" class="flyout-item">
+          <span class="flyout-emoji">📥</span>
+          <span class="flyout-text">
+            <span class="flyout-name">Intake Agent</span>
+            <span class="flyout-zone">Front of House</span>
+          </span>
+        </a>
+        <a href="/deadline-agent.html" class="flyout-item">
+          <span class="flyout-emoji">⏰</span>
+          <span class="flyout-text">
+            <span class="flyout-name">Deadline Agent</span>
+            <span class="flyout-zone">Risk Management</span>
+          </span>
+        </a>
+      </div>
+    </div>
     <a href="#how-it-works" class="nav-link">How It Works</a>
     <a href="#faq" class="nav-link">FAQ</a>
-    <a href="https://lawfirmarchitects.com" target="_blank" class="nav-link">LFA</a>
+    <div class="nav-dropdown">
+      <a href="https://lawfirmarchitects.com" target="_blank" class="nav-link">LFA</a>
+      <div class="nav-flyout">
+        <a href="https://www.lawfirmarchitects.com/what-is-legal-design" target="_blank" class="flyout-item">
+          <span class="flyout-emoji">⚖️</span>
+          <span class="flyout-text">
+            <span class="flyout-name">Legal Design</span>
+            <span class="flyout-zone">What is Legal Design?</span>
+          </span>
+        </a>
+        <a href="https://calendly.com/lawfirmarchitects/figure-out-what-you-need-call" target="_blank" class="flyout-item">
+          <span class="flyout-emoji">🏗️</span>
+          <span class="flyout-text">
+            <span class="flyout-name">Redesign Your Firm</span>
+            <span class="flyout-zone">Book a strategy call</span>
+          </span>
+        </a>
+        <a href="https://www.linkedin.com/company/law-firm-architects/" target="_blank" class="flyout-item">
+          <span class="flyout-emoji">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#0A66C2" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </span>
+          <span class="flyout-text">
+            <span class="flyout-name">Connect</span>
+            <span class="flyout-zone">LFA on LinkedIn</span>
+          </span>
+        </a>
+        <a href="https://www.facebook.com/groups/1716226173080438" target="_blank" class="flyout-item">
+          <span class="flyout-emoji">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#1877F2" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </span>
+          <span class="flyout-text">
+            <span class="flyout-name">Join Our Community</span>
+            <span class="flyout-zone">LFA on Facebook</span>
+          </span>
+        </a>
+      </div>
+    </div>
     <a href="https://calendly.com/lawfirmarchitects/ai-agent-design-session" target="_blank" class="nav-pill">Get Started →</a>
   </div>
 </nav>
