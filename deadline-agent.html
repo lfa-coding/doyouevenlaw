@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deadline Agent for Law Firms | DoYouEvenLaw.com</title>
+
+<!-- SEO -->
+<meta name="description" content="Eliminate missed court deadlines with the LFA Deadline Agent. Rules-based date calculation, multi-tier alerts, and full audit trail — built for solo and small law firms.">
+<meta name="author" content="Law Firm Architects">
+<link rel="canonical" href="https://doyouevenlaw.com/deadline-agent.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Deadline Agent — AI for Law Firms | DoYouEvenLaw.com">
+<meta property="og:description" content="Eliminate missed court deadlines with the LFA Deadline Agent. Rules-based date calculation, multi-tier alerts, and full audit trail — built for solo and small law firms.">
+<meta property="og:url" content="https://doyouevenlaw.com/deadline-agent.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://doyouevenlaw.com/og-image.png">
+<meta property="og:site_name" content="DoYouEvenLaw.com">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Deadline Agent — AI for Law Firms">
+<meta name="twitter:description" content="Eliminate missed court deadlines with the LFA Deadline Agent. Rules-based date calculation, multi-tier alerts, and full audit trail — built for solo and small law firms.">
+<meta name="twitter:image" content="https://doyouevenlaw.com/og-image.png">
+
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --yellow: #FFC500;
+    --black: #0a0a0a;
+    --black2: #111111;
+    --black3: #1a1a1a;
+    --white: #ffffff;
+    --white2: #e8e8e8;
+    --gray: #888888;
+    --grid: rgba(255,197,0,0.04);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Blueprint grid */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NAV */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,10,10,0.95);
+    border-bottom: 1px solid rgba(255,197,0,0.1);
+    backdrop-filter: blur(12px);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 64px;
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px; letter-spacing: 3px;
+    color: var(--white); text-decoration: none;
+  }
+  .nav-logo span { color: var(--yellow); }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--gray); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--white); }
+  .nav-pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    background: var(--yellow); color: var(--black);
+    padding: 8px 18px; text-decoration: none;
+    font-weight: 500; transition: opacity 0.2s;
+  }
+  .nav-pill:hover { opacity: 0.85; }
+
+  /* HERO */
+  .agent-hero {
+    position: relative; z-index: 1;
+    padding: 160px 48px 80px;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .agent-zone-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--yellow);
+    border: 1px solid rgba(255,197,0,0.3);
+    padding: 6px 14px; margin-bottom: 32px;
+  }
+  .agent-emoji-large { font-size: 56px; display: block; margin-bottom: 16px; }
+  .agent-hero-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 10vw, 140px);
+    line-height: 0.88;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 32px;
+  }
+  .hl-yellow { color: var(--yellow); }
+  .agent-hero-sub {
+    font-size: clamp(16px, 2vw, 20px);
+    color: var(--white2);
+    max-width: 640px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+  .agent-hero-quote {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-style: italic;
+    color: var(--gray);
+    border-left: 3px solid var(--yellow);
+    padding-left: 20px;
+    max-width: 640px;
+    margin-bottom: 48px;
+    line-height: 1.5;
+  }
+  .btn-cta {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+    background: var(--yellow); color: var(--black);
+    padding: 18px 36px; text-decoration: none;
+    font-weight: 500; transition: opacity 0.2s;
+  }
+  .btn-cta:hover { opacity: 0.85; }
+  .btn-outline {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.2); color: var(--white2);
+    padding: 18px 36px; text-decoration: none;
+    font-weight: 400; transition: border-color 0.2s, color 0.2s;
+    margin-left: 16px;
+  }
+  .btn-outline:hover { border-color: var(--yellow); color: var(--yellow); }
+
+  /* AGENT NAV */
+  .agent-nav-bar {
+    position: relative; z-index: 1;
+    background: var(--black2);
+    border-top: 1px solid rgba(255,197,0,0.08);
+    border-bottom: 1px solid rgba(255,197,0,0.08);
+    padding: 0 48px;
+    overflow-x: auto;
+  }
+  .agent-nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; gap: 0;
+  }
+  .agent-nav-pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gray); text-decoration: none;
+    padding: 16px 20px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  .agent-nav-pill:hover { color: var(--white); }
+  .agent-nav-pill.active { color: var(--yellow); border-bottom-color: var(--yellow); }
+
+  /* OUTCOME STAT */
+  .outcome-bar {
+    position: relative; z-index: 1;
+    background: var(--yellow);
+    padding: 60px 48px;
+  }
+  .outcome-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; gap: 48px;
+  }
+  .outcome-stat {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 8vw, 96px);
+    letter-spacing: 2px;
+    color: var(--black);
+    line-height: 0.9;
+    flex-shrink: 0;
+  }
+  .outcome-text h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(18px, 2.5vw, 26px);
+    font-weight: 700; color: var(--black);
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .outcome-text p {
+    font-size: 15px; color: rgba(0,0,0,0.65);
+    max-width: 520px; line-height: 1.7;
+  }
+
+  /* FEATURES */
+  .features-section {
+    position: relative; z-index: 1;
+    padding: 100px 48px;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .features-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--yellow); margin-bottom: 16px;
+    display: inline-block;
+    border: 1px solid rgba(255,197,0,0.3);
+    padding: 6px 14px;
+  }
+  .features-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 56px);
+    letter-spacing: 2px; color: var(--white);
+    margin-bottom: 56px;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 2px;
+    background: rgba(255,197,0,0.06);
+  }
+  .feature-item {
+    background: var(--black2);
+    padding: 36px 32px;
+    transition: background 0.2s;
+  }
+  .feature-item:hover { background: var(--black3); }
+  .feature-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px;
+    color: var(--yellow); margin-bottom: 10px;
+  }
+  .feature-desc {
+    font-size: 14px; color: var(--gray);
+    line-height: 1.8; font-weight: 300;
+  }
+
+  /* CONNECTS WITH */
+  .connects-section {
+    position: relative; z-index: 1;
+    padding: 60px 48px;
+    background: var(--black2);
+    border-top: 1px solid rgba(255,197,0,0.06);
+    border-bottom: 1px solid rgba(255,197,0,0.06);
+  }
+  .connects-inner {
+    max-width: 1100px; margin: 0 auto;
+  }
+  .connects-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gray); margin-bottom: 20px;
+  }
+  .connects-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .connect-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--white2); border: 1px solid rgba(255,255,255,0.1);
+    padding: 8px 14px; transition: border-color 0.2s, color 0.2s;
+    text-decoration: none; cursor: pointer;
+  }
+  .connect-tag:hover { border-color: var(--yellow); color: var(--yellow); }
+
+  /* TESTIMONIAL */
+  .agent-testi {
+    position: relative; z-index: 1;
+    padding: 100px 48px;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .testi-quote {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(22px, 3vw, 34px);
+    font-style: italic;
+    color: var(--white2);
+    line-height: 1.4;
+    max-width: 760px;
+    margin-bottom: 24px;
+  }
+  .testi-quote::before { content: '\201C'; color: var(--yellow); }
+  .testi-quote::after { content: '\201D'; color: var(--yellow); }
+  .testi-attr {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  /* FINAL CTA */
+  .agent-final-cta {
+    position: relative; z-index: 1;
+    background: var(--black2);
+    border-top: 1px solid rgba(255,197,0,0.1);
+    padding: 100px 48px;
+    text-align: center;
+  }
+  .agent-final-cta h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 96px);
+    letter-spacing: 3px; line-height: 0.9;
+    color: var(--white); margin-bottom: 24px;
+  }
+  .agent-final-cta h2 span { color: var(--yellow); }
+  .agent-final-cta p {
+    font-size: 15px; color: var(--gray);
+    margin-bottom: 40px; font-weight: 300;
+  }
+
+  /* FOOTER */
+  footer {
+    position: relative; z-index: 1;
+    background: var(--black);
+    border-top: 1px solid rgba(255,197,0,0.08);
+    padding: 40px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+  }
+  .footer-brand { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 2px; }
+  .footer-brand span { color: var(--yellow); }
+  .footer-powered {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gray); margin-top: 4px;
+  }
+  .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+  .footer-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--gray); text-decoration: none; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--yellow); }
+
+  .feature-deploy {
+    background: #FFC500 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-column: span 1;
+  }
+  .feature-deploy:hover { background: #e6b000 !important; }
+  .feature-title-dark {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px;
+    color: #0a0a0a; margin-bottom: 10px;
+  }
+  .feature-stat {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px; line-height: 0.9;
+    color: #0a0a0a; letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  .feature-deploy-body {
+    font-size: 14px; color: rgba(0,0,0,0.55);
+    line-height: 1.8; font-weight: 300;
+    margin-bottom: 20px;
+  }
+  .feature-deploy-cta {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    background: #0a0a0a; color: #FFC500;
+    padding: 12px 20px; text-decoration: none;
+    font-weight: 500; transition: opacity 0.2s;
+    align-self: flex-start;
+  }
+  .feature-deploy-cta:hover { opacity: 0.85; }
+
+  .connects-any {
+    margin-top: 16px;
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--gray);
+    text-transform: uppercase;
+    padding: 14px 20px;
+    border: 1px dashed rgba(255,197,0,0.2);
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .nav-inner { padding: 0 20px; }
+    .nav-links { display: none; }
+    .agent-hero { padding: 100px 20px 60px; }
+    .agent-nav-bar { padding: 0 20px; }
+    .outcome-bar { padding: 40px 20px; }
+    .outcome-inner { flex-direction: column; gap: 16px; text-align: center; }
+    .features-section { padding: 60px 20px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .connects-section { padding: 40px 20px; }
+    .agent-testi { padding: 60px 20px; }
+    .agent-final-cta { padding: 60px 20px; }
+    .btn-outline { margin-left: 0; margin-top: 12px; display: block; text-align: center; }
+    footer { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="main-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">DO YOU <span>EVEN</span> LAW?</a>
+    <div class="nav-links">
+      <a href="/#agents" class="nav-link">The Agents</a>
+      <a href="/#how-it-works" class="nav-link">How It Works</a>
+      <a href="/#faq" class="nav-link">FAQ</a>
+      <a href="https://lawfirmarchitects.com" target="_blank" class="nav-link">LFA</a>
+      <a href="https://calendly.com/lawfirmarchitects/ai-agent-design-session" target="_blank" class="nav-pill">Get Started →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- AGENT NAV BAR -->
+<div class="agent-nav-bar">
+  <div class="agent-nav-inner">
+    <a href="/billing-agent.html" class="agent-nav-pill ">Billing</a><a href="/document-agent.html" class="agent-nav-pill ">Document</a><a href="/client-comms-agent.html" class="agent-nav-pill ">Client Comms</a><a href="/intake-agent.html" class="agent-nav-pill ">Intake</a><a href="/deadline-agent.html" class="agent-nav-pill active">Deadline</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="agent-hero">
+  <span class="agent-emoji-large">⏰</span>
+  <div class="agent-zone-tag">Risk Management</div>
+  <h1 class="agent-hero-headline">ZERO MISSED<br>DEADLINES.<br><span class="hl-yellow">EVER.</span></h1>
+  <p class="agent-hero-sub">The Deadline Agent calculates critical dates from court rules — not someone's calendar entry — and alerts the right person at the right time. This is the agent that keeps your license intact.</p>
+  <p class="agent-hero-quote">Calculated from court rules. Alerts at 30, 14, 7, and 2 days out. Nothing slips.</p>
+  <a href="https://calendly.com/lawfirmarchitects/ai-agent-design-session" target="_blank" class="btn-cta">Book Your Free Design Session →</a>
+  <a href="/" class="btn-outline">← See All Agents</a>
+</section>
+
+<!-- OUTCOME BAR -->
+<div class="outcome-bar">
+  <div class="outcome-inner">
+    <div class="outcome-stat">0</div>
+    <div class="outcome-text">
+      <h3>missed deadlines across all active cases.</h3>
+      <p>One missed deadline can end a career. The Deadline Agent exists specifically so that never happens on your watch.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="features-section">
+  <div class="features-label">What It Does</div>
+  <h2 class="features-headline">HOW THE DEADLINE AGENT WORKS</h2>
+  <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-title">Rules-Based Date Calculation</div>
+        <div class="feature-desc">Critical deadlines are calculated from jurisdiction-specific court rules — not manually entered. If the rule changes, the calculation updates.</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-title">Multi-Tier Alert Sequence</div>
+        <div class="feature-desc">Alerts fire at 30, 14, 7, and 2 days before every critical date — to the right person, via the right channel, with full case context.</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-title">Court Calendar Integration</div>
+        <div class="feature-desc">The agent syncs with court filing systems and calendars to account for holidays, closures, and extensions automatically.</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-title">Escalation Protocol</div>
+        <div class="feature-desc">If an alert is acknowledged but no action is logged within 24 hours, the agent escalates to a supervisor — with a full timeline of what happened.</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-title">Audit Trail</div>
+        <div class="feature-desc">Every alert sent, every acknowledgment received, every action logged — fully documented and retrievable for malpractice defense if needed.</div>
+      </div>
+      <div class="feature-item feature-deploy">
+        <div class="feature-title-dark">Speed to Deploy</div>
+        <div class="feature-deploy-body">Design session. Build. QA. Launch. Most firms are live in 3 weeks.</div>
+        <a href="https://calendly.com/lawfirmarchitects/ai-agent-design-session" target="_blank" class="feature-deploy-cta">Book Your Session →</a>
+      </div>
+  </div>
+</section>
+
+<!-- CONNECTS WITH -->
+<div class="connects-section">
+  <div class="connects-inner">
+    <div class="connects-label">Common Connections for this Agent</div>
+    <div class="connects-tags"><a class="connect-tag" href="https://clio.com" target="_blank" rel="noopener">Clio</a><a class="connect-tag" href="https://filevine.com" target="_blank" rel="noopener">Filevine</a><a class="connect-tag" href="https://mycase.com" target="_blank" rel="noopener">MyCase</a><a class="connect-tag" href="https://smokeball.com" target="_blank" rel="noopener">Smokeball</a><a class="connect-tag" href="https://calendar.google.com" target="_blank" rel="noopener">Google Calendar</a><a class="connect-tag" href="https://outlook.com" target="_blank" rel="noopener">Outlook</a><a class="connect-tag" href="https://monday.com" target="_blank" rel="noopener">Monday.com</a></div>
+  </div>
+  <div class="connects-any">
+    <span>+ Any platform with an API or integration layer</span>
+  </div>
+</div>
+
+<!-- TESTIMONIAL -->
+<section class="agent-testi">
+  <p class="testi-quote">I sleep better at night. That sounds dramatic but it's true. I used to have this background anxiety about deadlines — did someone catch it, did it get calendared correctly. That's just gone now.</p>
+  <div class="testi-attr">David K. — Civil Litigation · 2-Attorney Firm</div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="agent-final-cta">
+  <h2>READY TO DEPLOY<br><span>THIS AGENT?</span></h2>
+  <p>Book a free 30-minute design session. You'll leave with a clear picture of what this agent looks like in your firm and exactly what it costs.</p>
+  <a href="https://calendly.com/lawfirmarchitects/ai-agent-design-session" target="_blank" class="btn-cta">Book Your Free 30-Min Session →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">DO YOU <span>EVEN</span> LAW?</div>
+    <div class="footer-powered">Powered by Law Firm Architects</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="https://doyouevenlaw.com">DoYouEvenLaw.com</a></li>
+    <li><a href="https://lawfirmarchitects.com" target="_blank">lawfirmarchitects.com</a></li>
+    <li><a href="tel:7799349476">779-FIX-FIRM</a></li>
+    <li><a href="mailto:info@lawfirmarchitects.com">info@lawfirmarchitects.com</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
