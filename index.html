@@ -942,6 +942,130 @@
   }
   .agent-yellow-cta:hover { background: #1a1a1a; }
 
+
+  /* ─── PARTNERS ──────────────────────────────────────────── */
+  .partners {
+    position: relative;
+    z-index: 1;
+    padding: 100px 48px;
+    border-top: 1px solid rgba(255,197,0,0.08);
+    border-bottom: 1px solid rgba(255,197,0,0.08);
+    background: var(--black);
+  }
+
+  .partners-inner { max-width: 1100px; margin: 0 auto; }
+
+  .partners-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .partners-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    letter-spacing: 3px;
+    line-height: 0.92;
+    color: var(--white);
+    margin: 16px 0 20px;
+  }
+  .partners-headline span { color: var(--yellow); }
+
+  .partners-sub {
+    font-size: 14px;
+    color: var(--gray);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2px;
+    background: rgba(255,197,0,0.06);
+  }
+
+  .partner-item {
+    background: var(--black2);
+    padding: 24px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 88px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .partner-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--yellow);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s;
+  }
+  .partner-item:hover::after { transform: scaleX(1); }
+  .partner-item:hover { background: #1e1e1e; }
+
+  .partner-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--white2);
+    text-transform: uppercase;
+    transition: color 0.2s;
+    line-height: 1;
+  }
+  .partner-item:hover .partner-name { color: var(--yellow); }
+
+  .partner-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    color: var(--gray);
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .partner-item:hover .partner-type { color: rgba(255,197,0,0.5); }
+
+  .partners-footer {
+    text-align: center;
+    margin-top: 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--gray);
+    text-transform: uppercase;
+    padding: 16px;
+    border: 1px dashed rgba(255,197,0,0.2);
+  }
+
+  @media (max-width: 1024px) {
+    .partners-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .partners { padding: 60px 20px; }
+    .partners-grid { grid-template-columns: repeat(3, 1fr); }
+    .partner-name { font-size: 12px; }
+    .partner-type { font-size: 7px; }
+    .partner-item { min-height: 72px; padding: 16px 8px; }
+    .partners-footer { font-size: 9px; }
+  }
+
+  @media (max-width: 390px) {
+    .partners-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
   /* ─── ANIMATIONS ───────────────────────────────────────── */
   @keyframes riseIn {
     from { opacity: 0; transform: translateY(24px); }
@@ -1130,7 +1254,7 @@
     <span class="outline-y">ITSELF.</span>
   </h1>
   <p class="hero-sub">
-    <strong>AI agents for solo and small law firms.</strong> Intake, documents, billing, deadlines, client updates — handled automatically, in your voice, while you focus on actually practicing law.
+    <strong>AI agents for solo and small law firms.</strong><br>Intake, documents, billing, deadlines, client updates. Handled automatically, in your voice, while you focus on actually practicing law.
   </p>
   <div class="hero-btns">
     <a href="https://calendly.com/lawfirmarchitects/ai-agent-design-session" target="_blank" class="btn-hard">Book a Free Design Session →</a>
@@ -1371,6 +1495,94 @@
   </div>
 </section>
 
+<!-- PARTNERS -->
+<section class="partners">
+  <div class="partners-inner">
+    <div class="partners-header">
+      <div class="section-tag">Our Partners</div>
+      <h2 class="partners-headline">We Build Inside<br><span>Your Stack.</span></h2>
+      <p class="partners-sub">The tools below are examples of platforms we connect with and build inside. Don't see yours? We can work with virtually any technology your firm is already using — if it has an API or integration layer, we can build on it.</p>
+    </div>
+    <div class="partners-grid">
+      <a class="partner-item" href="https://clio.com" target="_blank" rel="noopener">
+        <span class="partner-name">Clio</span>
+        <span class="partner-type">Practice Mgmt</span>
+      </a>
+      <a class="partner-item" href="https://cerenade.com" target="_blank" rel="noopener">
+        <span class="partner-name">eImmigration</span>
+        <span class="partner-type">Immigration</span>
+      </a>
+      <a class="partner-item" href="https://docketwise.com" target="_blank" rel="noopener">
+        <span class="partner-name">Docketwise</span>
+        <span class="partner-type">Immigration</span>
+      </a>
+      <a class="partner-item" href="https://smokeball.com" target="_blank" rel="noopener">
+        <span class="partner-name">Smokeball</span>
+        <span class="partner-type">Practice Mgmt</span>
+      </a>
+      <a class="partner-item" href="https://monday.com" target="_blank" rel="noopener">
+        <span class="partner-name">Monday.com</span>
+        <span class="partner-type">Operations</span>
+      </a>
+      <a class="partner-item" href="https://pandadoc.com" target="_blank" rel="noopener">
+        <span class="partner-name">PandaDoc</span>
+        <span class="partner-type">Documents</span>
+      </a>
+      <a class="partner-item" href="https://lawpay.com" target="_blank" rel="noopener">
+        <span class="partner-name">LawPay</span>
+        <span class="partner-type">Payments</span>
+      </a>
+      <a class="partner-item" href="https://filevine.com" target="_blank" rel="noopener">
+        <span class="partner-name">Filevine</span>
+        <span class="partner-type">Practice Mgmt</span>
+      </a>
+      <a class="partner-item" href="https://casestatus.com" target="_blank" rel="noopener">
+        <span class="partner-name">Case Status</span>
+        <span class="partner-type">Client Portal</span>
+      </a>
+      <a class="partner-item" href="https://hona.com" target="_blank" rel="noopener">
+        <span class="partner-name">Hona</span>
+        <span class="partner-type">Client Comms</span>
+      </a>
+      <a class="partner-item" href="https://draftyai.com" target="_blank" rel="noopener">
+        <span class="partner-name">DraftyAI</span>
+        <span class="partner-type">AI Drafting</span>
+      </a>
+      <a class="partner-item" href="https://lawmatics.com" target="_blank" rel="noopener">
+        <span class="partner-name">Lawmatics</span>
+        <span class="partner-type">CRM & Intake</span>
+      </a>
+      <a class="partner-item" href="https://clickup.com" target="_blank" rel="noopener">
+        <span class="partner-name">ClickUp</span>
+        <span class="partner-type">Operations</span>
+      </a>
+      <a class="partner-item" href="https://asana.com" target="_blank" rel="noopener">
+        <span class="partner-name">Asana</span>
+        <span class="partner-type">Operations</span>
+      </a>
+      <a class="partner-item" href="https://airtable.com" target="_blank" rel="noopener">
+        <span class="partner-name">Airtable</span>
+        <span class="partner-type">Database</span>
+      </a>
+      <a class="partner-item" href="https://microsoft.com/microsoft-365" target="_blank" rel="noopener">
+        <span class="partner-name">Microsoft 365</span>
+        <span class="partner-type">Productivity</span>
+      </a>
+      <a class="partner-item" href="https://gmail.com" target="_blank" rel="noopener">
+        <span class="partner-name">Gmail</span>
+        <span class="partner-type">Email</span>
+      </a>
+      <a class="partner-item" href="https://workspace.google.com" target="_blank" rel="noopener">
+        <span class="partner-name">Google Workspace</span>
+        <span class="partner-type">Productivity</span>
+      </a>
+    </div>
+    <div class="partners-footer">
+      <span>+ Any platform with an API or integration layer</span>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="faq" id="faq">
   <div class="faq-top">
@@ -1392,7 +1604,7 @@
       What practice management systems does this work with?
       <span class="faq-icon">+</span>
     </button>
-    <div class="faq-body">We build agents inside Clio, Filevine, MyCase, LawPay, Monday.com, Gmail, Google Workspace, and Microsoft 365. We don't add new software to your stack. We connect and activate what you already have.</div>
+    <div class="faq-body">We build agents inside Clio, Filevine, MyCase, Docketwise, LawPay, Lawmatics, Smokeball, Monday.com, ClickUp, Asana, Airtable, Gmail, Google Workspace, and Microsoft 365. We don't add new software to your stack. We connect and activate what you already have.</div>
   </div>
 
   <div class="faq-item">
